@@ -5,15 +5,15 @@
 ## Debug
 ProjectName            :=Amazon
 ConfigurationName      :=Debug
-WorkspacePath          := "C:\Program Files\CodeLite\ProgII"
-ProjectPath            := "C:\Users\LAB4-PC12\Downloads\ProgramacaoII\Amazon\Amazon"
+WorkspacePath          := "C:\Users\PC04\Downloads\Amazon\Amazon"
+ProjectPath            := "C:\Users\PC04\Downloads\Amazon\Amazon\Amazon"
 IntermediateDirectory  :=./Debug
 OutDir                 := $(IntermediateDirectory)
 CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
-User                   :=LAB4-PC12
-Date                   :=09/22/14
+User                   :=PC04
+Date                   :=09/24/14
 CodeLitePath           :="C:\Program Files\CodeLite"
 LinkerName             :=C:/MinGW-4.8.1/bin/g++.exe 
 SharedObjectLinkerName :=C:/MinGW-4.8.1/bin/g++.exe -shared -fPIC
@@ -63,7 +63,7 @@ AS       := C:/MinGW-4.8.1/bin/as.exe
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
 UNIT_TEST_PP_SRC_DIR:=C:\UnitTest++-1.3
-Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Amazon.cpp$(ObjectSuffix) 
 
 
 
@@ -91,12 +91,20 @@ PreBuild:
 ## Objects
 ##
 $(IntermediateDirectory)/main.cpp$(ObjectSuffix): main.cpp $(IntermediateDirectory)/main.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/LAB4-PC12/Downloads/ProgramacaoII/Amazon/Amazon/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IncludePath)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/PC04/Downloads/Amazon/Amazon/Amazon/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/main.cpp$(DependSuffix): main.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/main.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/main.cpp$(DependSuffix) -MM "main.cpp"
 
 $(IntermediateDirectory)/main.cpp$(PreprocessSuffix): main.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/main.cpp$(PreprocessSuffix) "main.cpp"
+
+$(IntermediateDirectory)/Amazon.cpp$(ObjectSuffix): Amazon.cpp $(IntermediateDirectory)/Amazon.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/PC04/Downloads/Amazon/Amazon/Amazon/Amazon.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Amazon.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/Amazon.cpp$(DependSuffix): Amazon.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Amazon.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Amazon.cpp$(DependSuffix) -MM "Amazon.cpp"
+
+$(IntermediateDirectory)/Amazon.cpp$(PreprocessSuffix): Amazon.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Amazon.cpp$(PreprocessSuffix) "Amazon.cpp"
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)
@@ -108,6 +116,6 @@ clean:
 	$(RM) ./Debug/*$(DependSuffix)
 	$(RM) $(OutputFile)
 	$(RM) $(OutputFile).exe
-	$(RM) "../../../../../../Program Files/CodeLite/ProgII/.build-debug/Amazon"
+	$(RM) "../.build-debug/Amazon"
 
 
